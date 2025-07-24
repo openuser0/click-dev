@@ -31,7 +31,15 @@ pub async fn run(){
     for i in args().skip(1) {
         match i.as_str() {
             "v" => { function_mod::select(Select::V).await }
+            "code" => { function_mod::select(Select::Code).await }
+            "c#" => { function_mod::select(Select::Csharp).await }
             "c" => { function_mod::select(Select::C).await }
+            "c++" => { function_mod::select(Select::Cplusplus).await }
+            "go" => { function_mod::select(Select::Go).await }
+            "html-css-js" => { function_mod::select(Select::HtmlCssJs).await }
+            "java" => { function_mod::select(Select::Java).await }
+            "python" => { function_mod::select(Select::Python).await }
+            "rust" => { function_mod::select(Select::Rust).await }
             _ => { println!("未定义的命令"); std::process::exit(0);}
         }
     }
