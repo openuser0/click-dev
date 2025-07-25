@@ -36,12 +36,7 @@ pub async fn select(cli:Select){
     match cli {
         Select::V => { println!("0.1.0"); off() }
         Select::Code => { if let Ok(_) = jump("https://gitcode.com/songjiaqicode/click-dev").await{ off() }else { err() } }
-        Select::Csharp => {
-            select_cmd("是否安装 c# [y/n]");
-            #[cfg(target_os = "windows")] let _ = cmd(r#"curl -L aka.ms/vs/17/release/vs_community.exe -o /tmp/vs.exe && /tmp/vs.exe --passive --add Microsoft.VisualStudio.Workload.ManagedDesktop --installPath "$(df -h | awk '$6 !~ /^\/c$/ && $1 ~ /^\/[a-z]/ {print $6; exit}')/VS" --nocache --wait"#).await;
-            #[cfg(target_os = "linux")] println!("暂不支持linux");
-            off()
-        }
+        Select::Csharp => { select_cmd("是否安装 c# [y/n]") }
         Select::C => { select_cmd("是否安装 c [y/n]"); off() }
         Select::Cplusplus => { select_cmd("是否安装 c++ [y/n]"); off() }
         Select::Go => { select_cmd("是否安装 go [y/n]"); off() }

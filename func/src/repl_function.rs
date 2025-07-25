@@ -23,8 +23,8 @@
 /* 内部操作 */
 
 pub fn run(){
-    let cli = "\x1b[31m命令格式\x1b[0m:\nclick-dev \x1b[38;5;29m[编程语言]\x1b[0m \x1b[38;5;220m[ide]\x1b[0m\n";
-    let lang = "\x1b[38;5;29m[编程语言]\x1b[0m:\nc# c c++ go html-css-js java python rust\n";
-    let ide = "\x1b[38;5;220m[ide]\x1b[0m:\nvscode IntelliJ";
+    let cli = "命令格式:\nclick-dev [编程语言] [ide]\n";
+    let lang = "[编程语言]:\nc# c c++ go html-css-js java python rust\n";
+    let ide = "[ide]:\nvscode IntelliJ";
     println!("{}",&format!("{cli}{lang}{ide}"));
 }
