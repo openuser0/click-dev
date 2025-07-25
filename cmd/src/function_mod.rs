@@ -47,6 +47,11 @@ pub async fn select(cli:Select){
     }
 }
 
+/* 通用安装 */
+pub async fn install(cmd:&str) {
+    
+}
+
 /* 通用跳转 */
 pub async fn jump(https:&str) -> Result<(), Box<dyn std::error::Error>> {
     /* 跳转代码仓库 */
