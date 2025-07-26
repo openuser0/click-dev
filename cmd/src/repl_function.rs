@@ -27,7 +27,6 @@ use function_mod::Select;
 /* 内部操作 */
 
 pub async fn run(){
-    /* 获取命令行参数 */
     for i in args().skip(1) {
         match i.as_str() {
             "v" => { function_mod::select(Select::V).await }
