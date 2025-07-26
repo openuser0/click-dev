@@ -34,16 +34,16 @@ pub enum Select{
 /* 匹配枚举值 */
 pub async fn select(cli:Select){
     match cli {
-        Select::V => { println!("0.1.0"); off() }
-        Select::Code => { if let Ok(_) = jump("https://gitcode.com/songjiaqicode/click-dev").await{ off() }else { err() } }
+        Select::V => { println!("0.1.0"); err("") }
+        Select::Code => { if let Ok(_) = jump("https://gitcode.com/songjiaqicode/click-dev").await{ err("") }else { err("跳转失败💀️☠️") } }
         Select::Csharp => { select_cmd("是否安装 c# [y/n]") }
-        Select::C => { select_cmd("是否安装 c [y/n]"); off() }
-        Select::Cplusplus => { select_cmd("是否安装 c++ [y/n]"); off() }
-        Select::Go => { select_cmd("是否安装 go [y/n]"); off() }
-        Select::HtmlCssJs => { select_cmd("是否安装 html-css-js [y/n]"); off() }
-        Select::Java => { select_cmd("是否安装 java [y/n]"); off() }
-        Select::Python => { select_cmd("是否安装 python [y/n]"); off() }
-        Select::Rust => { select_cmd("是否安装 rust [y/n]"); off() }
+        Select::C => { select_cmd("是否安装 c [y/n]"); err("") }
+        Select::Cplusplus => { select_cmd("是否安装 c++ [y/n]"); err("") }
+        Select::Go => { select_cmd("是否安装 go [y/n]"); err("") }
+        Select::HtmlCssJs => { select_cmd("是否安装 html-css-js [y/n]"); err("") }
+        Select::Java => { select_cmd("是否安装 java [y/n]"); err("") }
+        Select::Python => { select_cmd("是否安装 python [y/n]"); err("") }
+        Select::Rust => { select_cmd("是否安装 rust [y/n]"); err("") }
     }
 }
 
@@ -79,8 +79,5 @@ fn select_cmd(pr:&str) {
     if buf.trim() == "y" { () }else { println!("操作已取消"); std::process::exit(0); }
 }
 
-/* 通用关闭 */
-fn off(){ std::process::exit(0) }
-
-/* 通用报错 */
-fn err(){ println!("错误☠️"); std::process::exit(0) }
+/* 通用报错/关闭 */
+fn err(cli:&str){ println!("{cli}️"); std::process::exit(0) }
