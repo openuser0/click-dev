@@ -60,7 +60,7 @@ pub async fn jump(https:&str) -> Result<(), Box<dyn std::error::Error>> {
     Ok(())
 }
 
-/* 执行命令 */
+/* 通用命令 */
 async fn cmd(shell:&str) -> Result<(), Box<dyn std::error::Error>> {
     #[cfg(target_os = "linux")]
     Command::new("bash").args(["-c",shell]).status().await?;
